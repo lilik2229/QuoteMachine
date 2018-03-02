@@ -1,6 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Observable} from 'rxjs/Rx';
 
 import { QuoteComponent } from './quote.component';
+import { Quote } from '../quote';
+import { ApiService } from '../api.service';
+
+class apiServiceStub {
+    get(){
+        return Observable.of(
+            {
+                "quote": "sample quote",
+                "author" : "me",
+                "category": "movie"
+            }
+        )
+    }
+}
 
 describe('QuoteComponent', () => {
   let component: QuoteComponent;
@@ -8,7 +23,10 @@ describe('QuoteComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ QuoteComponent ]
+        declarations: [ QuoteComponent ],
+        providers:    [
+            {provide: ApiService, useClass: apiServiceStub }
+        ]
     })
     .compileComponents();
   }));
