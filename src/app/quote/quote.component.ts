@@ -9,7 +9,7 @@ import { ApiService } from '../api.service';
   styleUrls: ['./quote.component.css']
 })
 export class QuoteComponent implements OnInit {
-    private quote:Quote;
+    private quote = new Quote();
     
     constructor(
         private apiService: ApiService

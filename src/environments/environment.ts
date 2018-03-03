@@ -5,7 +5,7 @@
 export const environment = {
     production: false,
     api:{
-        url: 'https://andruxnet-random-famous-quotes.p.mashape.com/',
-        key: 'mtdnRc74xfmsh0WzIqHW0Lzhmodtp1tFRXfjsn2CQNTBQPLoVs'
+        url: 'mock-server/quote',
+        key: 'mock-api-key'
     }
 };
