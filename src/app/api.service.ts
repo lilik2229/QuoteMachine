@@ -14,8 +14,8 @@ const httpOptions = {
 
 @Injectable()
 export class ApiService {
-    private quoteUrl=environment.api.url;
-    
+    quoteUrl=environment.api.url;
+   
     constructor(
         private http: HttpClient
     ){}

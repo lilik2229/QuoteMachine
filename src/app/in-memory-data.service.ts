@@ -7,8 +7,8 @@ export class InMemoryDataService implements InMemoryDbService{
         const api =
             {
                 quote: {
-                    quote:'激ネムざうるす',
-                    author: 'Ms. Yamma',
+                    quote:'samplesamplesample',
+                    author: 'Ms. author',
                     category: 'sample'
                 }
             };
