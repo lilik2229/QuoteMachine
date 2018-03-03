@@ -30,8 +30,41 @@ describe('ApiService', () => {
         apiService = TestBed.get(ApiService);
     });
 
-    it('should be created', () => {
-        expect(apiService).toBeTruthy();
+    afterEach(() => {
+        // After every test, assert that there are no more pending requests.
+        httpTestingController.verify();
     });
 
+    
+    describe('#created', () => {
+        it('should be created', () => {
+            expect(apiService).toBeTruthy();
+        });
+    });
+
+    describe('#get()', () => {
+        let expectedQuote: Quote;
+        beforeEach(() => {
+            apiService = TestBed.get(ApiService);
+            expectedQuote = {
+                quote:'samplesamplesample',
+                author: 'Ms. author',
+                category: 'sample'                
+            } as Quote;
+        });
+        
+        it('should return expected quote', () => {
+            apiService.get().subscribe(
+                quote =>
+                    expect(quote)
+                    .toEqual(expectedQuote, 'should return expected quote'),
+                fail
+            );
+
+            const req = httpTestingController.expectOne(apiService.quoteUrl);
+            expect(req.request.method).toEqual('GET');
+
+            req.flush(expectedQuote);
+        });
+    });
 });
