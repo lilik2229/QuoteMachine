@@ -1,4 +1,11 @@
-<div>
-    <p> {{this.quote.quote}} </p>
-    <cite> - {{this.quote.author}} </cite>
-</div>
+<blockquote
+    class="container"
+    [style.color]="randomColor"
+>
+    <p class="quote-text">
+        {{this.quote.quote}}
+    </p>
+    <cite class="quote-author">
+        - {{this.quote.author}}
+    </cite>
+</blockquote>

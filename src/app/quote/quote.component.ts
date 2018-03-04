@@ -10,12 +10,35 @@ import { ApiService } from '../api.service';
 })
 export class QuoteComponent implements OnInit {
     private quote = new Quote();
+    private randomColor;
+    private colorList =[
+        'Aqua',
+        'DarkGreen',
+        'DarkBlue',
+        'HotPink',
+        'Purple',
+        'RosyBrown'
+    ];
     
     constructor(
         private apiService: ApiService
     ) { }
 
+    private getRandomColor(){
+        return this.colorList[
+            Math.floor(Math.random()*(this.colorList.length))
+        ];
+    }
+    
+    private setColor(){
+        const color= this.getRandomColor();
+        console.log(color);
+        this.randomColor=color;
+        document.body.style.background=color;
+    }
+    
     ngOnInit() {
+        this.setColor();
         this.apiService
             .get()
             .subscribe(
