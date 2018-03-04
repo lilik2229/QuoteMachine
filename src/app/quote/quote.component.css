@@ -1,0 +1,22 @@
+.container{
+    border-radius: 3px;
+    font-family: monospace;
+    position: relative;
+    margin: 8% auto auto auto;
+    width: 450px;
+    padding: 40px 50px;
+    display: table;
+    background-color: #eee;
+}
+
+.quote-text{
+    font-size:xx-large;
+    font-weight: 700;    
+    text-align: center;    
+}
+
+.quote-author{
+    font-size:medium;
+    text-align: right;
+    display:block;
+}
