@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/interval';
 
 import { Quote } from '../quote';
 import { ApiService } from '../api.service';
@@ -8,7 +10,8 @@ import { ApiService } from '../api.service';
   templateUrl: './quote.component.html',
   styleUrls: ['./quote.component.css']
 })
-export class QuoteComponent implements OnInit {
+
+export class QuoteComponent implements OnInit{
     private quote = new Quote();
     private randomColor;
     private colorList =[
@@ -36,8 +39,8 @@ export class QuoteComponent implements OnInit {
         this.randomColor=color;
         document.body.style.background=color;
     }
-    
-    ngOnInit() {
+
+    private updateQuote(){
         this.setColor();
         this.apiService
             .get()
@@ -48,4 +51,16 @@ export class QuoteComponent implements OnInit {
                 }
             );
     }
+    
+    ngOnInit() {
+        this.updateQuote();
+        Observable
+            .interval(3000)
+            .subscribe(
+                ()=>{
+                    this.updateQuote();
+                }
+            );
+    }
+
 }
