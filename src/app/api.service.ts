@@ -12,7 +12,8 @@ const httpOptions = {
     headers: new HttpHeaders({
         'Content-Type':  'application/json',
         /**       
-         * api-keyは'../environments/environment.ts'で設定
+         * APIキーを設定
+         * '../environments/environment.ts'で設定
          */  
         'X-Mashape-Key': environment.api.key
     })
