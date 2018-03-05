@@ -29,10 +29,10 @@ import { ApiService } from '../api.service';
 })
 
 export class QuoteComponent implements OnInit{
-    private quote = new Quote();
-    private autoQuote;
-    private randomColor;
-    private colorList =[
+    quote = new Quote();
+    autoQuote;
+    randomColor;
+    colorList =[
         'Aqua',
         'DarkGreen',
         'DarkBlue',
@@ -40,26 +40,26 @@ export class QuoteComponent implements OnInit{
         'Purple',
         'RosyBrown'
     ];
-    private interval=10000;
-    private shouldToggle=false;
+    interval=10000;
+    shouldToggle=false;
     
     constructor(
         private apiService: ApiService
     ) { }
-
-    private getRandomColor(){
+    
+    getRandomColor(){
         return this.colorList[
             Math.floor(Math.random()*(this.colorList.length))
         ];
     }
     
-    private setColor(){
+    setColor(){
         const color= this.getRandomColor();
         this.randomColor=color;
         document.body.style.background=color;
     }
     
-    private updateQuote(){
+    updateQuote(){
         this.shouldToggle = false;
         this.apiService
             .get()
