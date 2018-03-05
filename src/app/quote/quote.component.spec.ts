@@ -1,5 +1,17 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
+import 'rxjs/add/observable/interval';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+    trigger,
+    state,
+    style,
+    transition,
+    animate,
+    keyframes,
+    query,
+    stagger
+} from '@angular/animations';
 
 import { QuoteComponent } from './quote.component';
 import { Quote } from '../quote';
@@ -22,13 +34,16 @@ describe('QuoteComponent', () => {
   let fixture: ComponentFixture<QuoteComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
-        declarations: [ QuoteComponent ],
-        providers:    [
-            {provide: ApiService, useClass: apiServiceStub }
-        ]
-    })
-    .compileComponents();
+      TestBed.configureTestingModule({
+          imports: [
+              BrowserAnimationsModule
+          ],
+          declarations: [ QuoteComponent ],
+          providers:    [
+              {provide: ApiService, useClass: apiServiceStub }
+          ]
+      })
+          .compileComponents();
   }));
 
   beforeEach(() => {
