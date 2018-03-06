@@ -6,6 +6,10 @@ import { QuoteComponent } from './quote/quote.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
+/**       
+ * ルートとなるコンポーネント
+ */  
 export class AppComponent {
     
 }
